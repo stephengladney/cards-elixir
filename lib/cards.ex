@@ -2,6 +2,9 @@ defmodule Cards do
   @moduledoc """
   Provides methods for creating and handling a deck of cards.
   """
+  @doc """
+  Returns a list of strings representing a deck of cards.
+  """
   def create_deck do
     values = [
       "Ace",
@@ -54,6 +57,16 @@ defmodule Cards do
     end
   end
 
+  @doc """
+  Creates and shuffles a deck, picks five cards and returns those cards and the remaining cards in the deck.
+
+  ## Example
+      iex(3)> {hand,rest_of_deck} = Cards.create_hand(5)
+      iex(4)> hand
+      ["Two of Diamonds", "Four of Hearts", "Nine of Diamonds", "Queen of Hearts",
+      "Ace of Diamonds"]
+
+  """
   def create_hand(hand_size) do
     Cards.create_deck()
     |> shuffle()
